@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Tech Solutions</title>
+  <style>
+ :root {
+      --foreground: 222 47% 11%;
+      --primary: 217 91% 60%;
+      --primary-hover: 217 91% 55%;
+    }
+
+    body {
+      background-color: #fff;
+      color: hsl(var(--foreground));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Smooth slide for mobile menu */
+    .menu-open {
+      transform: translateX(0);
+    }
+    .menu-closed {
+      transform: translateX(100%);
+    }
+    .transition-transform {
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="relative">
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-3">
+    <!-- Logo -->
+    <a href="#" class="text-2xl font-bold text-blue-600">TechSolutions</a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex gap-8 items-center font-medium text-gray-700">
+      <a href="#services" class="hover:text-blue-600 transition">Services</a>
+      <a href="#about" class="hover:text-blue-600 transition">About</a>
+      <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+      <a href="#consult" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Get Consultation</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="hamburger" class="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none">
+      <span class="block h-0.5 w-full bg-gray-800"></span>
+      <span class="block h-0.5 w-full bg-gray-800"></span>
+      <span class="block h-0.5 w-full bg-gray-800"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="md:hidden hidden flex-col bg-white border-t border-gray-200 shadow-lg">
+    <a href="#services" class="py-4 px-6 text-gray-700 hover:text-blue-600 border-b border-gray-100 transition font-medium">Services</a>
+    <a href="#about" class="py-4 px-6 text-gray-700 hover:text-blue-600 border-b border-gray-100 transition font-medium">About</a>
+    <a href="#contact" class="py-4 px-6 text-gray-700 hover:text-blue-600 border-b border-gray-100 transition font-medium">Contact</a>
+    <a href="#consult" class="py-4 px-6 text-center bg-blue-600 text-white rounded-lg mx-4 my-4 hover:bg-blue-700 transition font-medium">Get Consultation</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <img src="assets/images/section.jpg" alt="Background" class="w-full h-full object-cover" style="opacity: 0.08;">
+  </div>
+
+  <!-- Content -->
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-6 md:px-0 max-w-4xl">
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+  Empowering Businesses with
+  <br>
+  <span class="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+    Scalable Tech Solutions
+  </span>
+</h1>
+
+
+    <p class="mt-6 text-gray-600 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
+  We deliver high-quality software, infrastructure, and custom digital solutions 
+  to help your business grow and succeed in today's competitive landscape.
+</p>
+
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 items-center">
+      <a href="#consult" class="inline-flex items-center justify-center gap-2 px-8 py-2 text-lg font-semibold rounded-lg bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-hover))] text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-500">
+        Get a Consultation
+      </a>
+      <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-2 text-lg font-semibold rounded-lg bg-white border border-gray-300 text-gray-900 shadow hover:shadow-md transition-all duration-500">
+        View Our Services
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating shapes -->
+  <div class="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-20 animate-float"></div>
+  <div class="absolute bottom-20 right-10 w-16 h-16 bg-blue-200 rounded-full opacity-20 animate-float" style="animation-delay: 1s;"></div>
+  <div class="absolute top-1/2 right-20 w-12 h-12 bg-blue-50 rounded-full opacity-20 animate-float" style="animation-delay: 2s;"></div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-24 px-6 bg-gray-50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+<div class="text-center mb-20">
+  <h2 class="mb-4" style="font-size: 2.25rem; color: #000; font-weight: 600; line-height: 1.2;">
+    Our Professional Services
+  </h2>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto" style="color: #6f7990;">
+    Comprehensive tech solutions designed to drive your business forward
+    </p>
+
+</div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Software Development</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We build scalable, efficient, and high-quality software solutions tailored to your business needs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+              <path d="M3 12A9 3 0 0 0 21 12"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Database Solutions</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We design, optimize, and manage secure, scalable databases for efficient storage and retrieval.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="8" height="8" x="3" y="3" rx="2"></rect>
+              <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
+              <rect width="8" height="8" x="13" y="13" rx="2"></rect>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Process Digitalization</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We automate and optimize business processes with digital solutions to increase efficiency.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Custom Solutions</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We create tailored solutions to meet your unique business challenges and deliver competitive advantages.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="8" x="2" y="2" rx="2"></rect>
+              <rect width="20" height="8" x="2" y="14" rx="2"></rect>
+              <line x1="6" x2="6.01" y1="6" y2="6"></line>
+              <line x1="6" x2="6.01" y1="18" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Servers & Infrastructure</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We design and manage reliable, scalable server infrastructures for optimal performance and uptime.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">WordPress Development</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Professional WordPress development and management services for powerful, scalable web solutions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">Cloud & Hosting</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Comprehensive cloud solutions and hosting services designed for performance, security, and scalability.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+        <div class="flex flex-col items-center p-6 text-center space-y-3">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">IT Consulting</h3>
+        </div>
+        <div class="p-6 pt-0 text-center">
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Strategic IT consulting to help you make informed technology decisions and optimize your digital infrastructure.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-5 bg-secondary/30">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left Content -->
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold text-muted-foreground mb-6">About Elevatec</h2>
+        <p class="text-m text-muted-foreground mb-6 leading-relaxed">
+          Elevatec helps businesses grow and innovate by delivering reliable, scalable, and high-quality tech solutions that drive real results.
+        </p>
+        <p class="text-m text-muted-foreground mb-8 leading-relaxed">
+          Our team combines expertise in software development, infrastructure management, and process automation to provide tailored solutions for each client. We understand that every business is unique, and we work closely with you to deliver solutions that meet your specific needs and goals.
+        </p>
+
+        <!-- Features -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-blue-200 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-foreground mb-1">Reliable Solutions</h4>
+              <p class="text-sm text-muted-foreground">Proven track record of delivering dependable technology solutions</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-blue-200 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-foreground mb-1">Expert Team</h4>
+              <p class="text-sm text-muted-foreground">Experienced professionals dedicated to your success</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-blue-200 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+                <circle cx="12" cy="8" r="6"></circle>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-foreground mb-1">Quality Focused</h4>
+              <p class="text-sm text-muted-foreground">Commitment to excellence in every project we undertake</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-blue-200 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-foreground mb-1">Innovation Driven</h4>
+              <p class="text-sm text-muted-foreground">Cutting-edge solutions that keep you ahead of the competition</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Stats -->
+      <div class="grid grid-cols-2 gap-6">
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm gradient-card text-center p-6">
+          <div class="p-6 pt-0 space-y-2">
+            <div class="text-3xl font-bold text-[#3c83f6]">50+</div>
+            <div class="text-sm text-muted-foreground">Projects Completed</div>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm gradient-card text-center p-6">
+          <div class="p-6 pt-0 space-y-2">
+            <div class="text-3xl font-bold text-[#3c83f6]">98%</div>
+            <div class="text-sm text-muted-foreground">Client Satisfaction</div>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm gradient-card text-center p-6">
+          <div class="p-6 pt-0 space-y-2">
+            <div class="text-3xl font-bold text-[#3c83f6]">24/7</div>
+            <div class="text-sm text-muted-foreground">Support Available</div>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm gradient-card text-center p-6">
+          <div class="p-6 pt-0 space-y-2">
+            <div class="text-3xl font-bold text-[#3c83f6]">5+</div>
+            <div class="text-sm text-muted-foreground">Years Experience</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-secondary/30">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+      Case Studies
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="m18 16 4-4-4-4"></path>
+                <path d="m6 8-4 4 4 4"></path>
+                <path d="m14.5 4-5 16"></path>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Software Development
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            E-commerce Platform Modernization
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Migrated legacy e-commerce system to modern React/Node.js architecture, resulting in 40% faster load times and improved user experience.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">React</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Node.js</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">PostgreSQL</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">AWS</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Infrastructure
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            Cloud Migration for FinTech
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Moved critical financial applications to AWS cloud, ensuring scalability, 99.9% uptime, and full compliance with security standards.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">AWS</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Docker</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Terraform</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 20h9"></path>
+                <path d="M12 4h9"></path>
+                <rect width="4" height="16" x="2" y="4" rx="2"></rect>
+                <rect width="4" height="16" x="16" y="4" rx="2"></rect>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Process Automation
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            Automated HR Onboarding
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Designed and deployed automated onboarding workflows, reducing HR processing time by 60% and eliminating manual paperwork.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Python</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Zapier</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Slack API</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Custom Solutions
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            Logistics Optimization System
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Developed a custom logistics dashboard with real-time tracking and predictive routing, saving 25% on transportation costs.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Laravel</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Vue.js</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">MySQL</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <rect x="2" y="2" width="20" height="14" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Web Development
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            Corporate Website Redesign
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Revamped corporate site with a sleek design and optimized performance, increasing lead generation by 30%.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Next.js</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">TailwindCSS</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Vercel</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="rounded-xl border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-all group">
+        <div class="flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="p-3 bg-blue-200 rounded-lg group-hover:bg-blue-300 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.82 0c0 2.28-3 3.62-3 6"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+              Support
+            </span>
+          </div>
+          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition mb-3">
+            24/7 Support for SaaS Clients
+          </h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Delivered round-the-clock monitoring and instant response for critical SaaS platforms, ensuring zero downtime for clients.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Monitoring</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Support</span>
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border">Incident Response</span>
+          </div>
+          <button class="inline-flex items-center justify-center gap-2 text-sm font-medium text-blue-600 border border-blue-300 hover:bg-blue-50 hover:text-blue-700 rounded-md px-3 py-2 w-full transition bg-transparent">
+            View Case Study
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- New Section 1: Case Studies -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 text-center">Success Stories</h2>
+      <p class="mt-3 text-gray-500 text-center text-base md:text-lg">Explore how we helped businesses transform with technology</p>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-gray-900 text-lg">E-Commerce Optimization</h3>
+          <p class="mt-2 text-gray-500 text-sm leading-relaxed">Increased client revenue by 40% through custom solutions and automation.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-gray-900 text-lg">Enterprise Infrastructure</h3>
+          <p class="mt-2 text-gray-500 text-sm leading-relaxed">Scalable server architecture for global operations with 99.99% uptime.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-gray-900 text-lg">Digital Transformation</h3>
+          <p class="mt-2 text-gray-500 text-sm leading-relaxed">Automated processes and integrated AI tools, boosting productivity by 35%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Section 2: Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">What Our Clients Say</h2>
+      <p class="mt-3 text-gray-500 text-base md:text-lg">Hear from the businesses we've helped succeed</p>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <p class="text-gray-600 text-sm leading-relaxed">"They transformed our IT infrastructure, making everything faster and more reliable!"</p>
+          <h4 class="mt-4 font-medium text-gray-900">John Doe, CEO</h4>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <p class="text-gray-600 text-sm leading-relaxed">"Professional and creative team delivering top-notch software solutions."</p>
+          <h4 class="mt-4 font-medium text-gray-900">Jane Smith, CTO</h4>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <p class="text-gray-600 text-sm leading-relaxed">"Their guidance in IT strategy helped us scale globally."</p>
+          <h4 class="mt-4 font-medium text-gray-900">Mike Johnson, Founder</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Section 3: Pricing -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">Flexible Pricing Plans</h2>
+      <p class="mt-3 text-gray-500 text-base md:text-lg">Choose a plan that fits your business needs</p>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-gray-900 text-lg">Basic</h3>
+          <p class="mt-2 text-gray-600 text-sm">$99/month - Ideal for small businesses</p>
+        </div>
+        <div class="bg-blue-600 text-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-lg">Professional</h3>
+          <p class="mt-2 text-white text-sm">$299/month - Best for growing businesses</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-medium text-gray-900 text-lg">Enterprise</h3>
+          <p class="mt-2 text-gray-600 text-sm">Custom pricing - For large-scale operations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Section 4: Call to Action -->
+  <section class="py-20 bg-blue-600 text-white text-center">
+    <h2 class="text-3xl md:text-4xl font-semibold">Ready to Elevate Your Business?</h2>
+    <p class="mt-4 text-lg md:text-xl">Get in touch with our experts today and start your digital transformation journey.</p>
+    <a href="#" class="mt-8 inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Contact Us</a>
+  </section>
+
+  <!-- New Section 5: Newsletter -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">Stay Updated</h2>
+      <p class="mt-3 text-gray-500 text-base md:text-lg">Subscribe to our newsletter for the latest tech insights and services.</p>
+      <form class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="email" placeholder="Your email" class="px-4 py-3 rounded-lg border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-600">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
