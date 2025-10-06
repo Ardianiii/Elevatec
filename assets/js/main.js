@@ -1,40 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
- const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileClose = document.getElementById('mobile-close');
-  const mobileLinks = mobileMenu.querySelectorAll('a');
+//  const hamburger = document.getElementById('hamburger');
+//   const mobileMenu = document.getElementById('mobile-menu');
+//   const mobileClose = document.getElementById('mobile-close');
+//   const mobileLinks = mobileMenu.querySelectorAll('a');
 
-  const animateLinks = () => {
-    mobileLinks.forEach((link, index) => {
-      link.style.transition = `all 0.3s ease ${index * 0.1}s`;
-      link.classList.toggle('opacity-0');
-      link.classList.toggle('translate-x-4');
-    });
-  };
+//   const animateLinks = () => {
+//     mobileLinks.forEach((link, index) => {
+//       link.style.transition = `all 0.3s ease ${index * 0.1}s`;
+//       link.classList.toggle('opacity-0');
+//       link.classList.toggle('translate-x-4');
+//     });
+//   };
 
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full');
-    mobileMenu.classList.add('translate-x-0');
+//   hamburger.addEventListener('click', () => {
+//     mobileMenu.classList.remove('translate-x-full');
+//     mobileMenu.classList.add('translate-x-0');
 
-    // Animate hamburger to X
-    hamburger.children[0].classList.toggle('rotate-45 translate-y-1.5');
-    hamburger.children[1].classList.toggle('opacity-0');
-    hamburger.children[2].classList.toggle('-rotate-45 -translate-y-1.5');
+//     // Animate hamburger to X
+//     hamburger.children[0].classList.toggle('rotate-45 translate-y-1.5');
+//     hamburger.children[1].classList.toggle('opacity-0');
+//     hamburger.children[2].classList.toggle('-rotate-45 -translate-y-1.5');
 
-    animateLinks();
-  });
+//     animateLinks();
+//   });
 
-  mobileClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-0');
-    mobileMenu.classList.add('translate-x-full');
+//   mobileClose.addEventListener('click', () => {
+//     mobileMenu.classList.remove('translate-x-0');
+//     mobileMenu.classList.add('translate-x-full');
 
-    // Reset hamburger
-    hamburger.children[0].classList.remove('rotate-45', 'translate-y-1.5');
-    hamburger.children[1].classList.remove('opacity-0');
-    hamburger.children[2].classList.remove('-rotate-45', '-translate-y-1.5');
+//     // Reset hamburger
+//     hamburger.children[0].classList.remove('rotate-45', 'translate-y-1.5');
+//     hamburger.children[1].classList.remove('opacity-0');
+//     hamburger.children[2].classList.remove('-rotate-45', '-translate-y-1.5');
 
-    animateLinks();
-  });
+//     animateLinks();
+//   });
   const scrollElements = document.querySelectorAll('.fade-in-on-scroll');
 
   const elementInView = (el, offset = 100) => {
