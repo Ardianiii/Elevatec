@@ -119,3 +119,19 @@ header.scrolled {
   @apply inline-flex items-center justify-center gap-2 text-sm font-medium text-white 
          bg-blue-600 hover:bg-blue-700 rounded-md px-4 py-2 transition;
 }
+  .btn-blue {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 hover:shadow-md transition-all duration-300;
+  }
+  .btn-blue i {
+    @apply transition-transform duration-300;
+  }
+  .btn-blue:hover i {
+    @apply translate-x-1 -translate-y-1;
+  }
+  .tech-tag {
+    @apply text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-md font-medium;
+  }
+
+  .btn-blue {
+  @apply inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition;
+}
