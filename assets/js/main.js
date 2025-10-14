@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  
 //  const hamburger = document.getElementById('hamburger');
 //   const mobileMenu = document.getElementById('mobile-menu');
 //   const mobileClose = document.getElementById('mobile-close');
@@ -87,4 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   cards.forEach(card => observer.observe(card));
 
+  
+
 });
+const faders = document.querySelectorAll('.fade-in-on-scroll');
+const options = { threshold: 0.2 };
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const delay = entry.target.dataset.delay || 0;
+      setTimeout(() => {
+        entry.target.classList.remove('opacity-0', 'translate-y-6', '-translate-y-6');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+      }, delay);
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+
+faders.forEach(fader => observer.observe(fader));

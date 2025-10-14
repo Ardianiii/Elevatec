@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elevatec</title>
+  <title>ElevateTech</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,33 +23,32 @@
 
 
 <body class="relative">
- <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+  <div class="bg-transparent w-full absolute top-0 left-0 h-full z-0" id="header-bg"></div>
 
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center py-4 relative z-10">
     <!-- Logo -->
-    <a href="#" class="flex items-center gap-2 z-50">
+    <a href="#" class="flex items-center gap-3">
       <img src="assets/images/logo2.png" alt="Elevatech Logo" class="h-12 w-auto">
-      <span class="text-2xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        Elevatech
-      </span>
+      <span id="logo-text" class="text-blue-600 font-bold text-2xl md:text-3xl transition-colors duration-500">ElevateTECH</span>
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-4 text-gray-700 font-sans">
-      <a href="#services" class="px-2 py-1 hover:text-blue-600 transition font-medium">Services</a>
-      <a href="#about" class="px-2 py-1 hover:text-blue-600 transition font-medium">About</a>
-      <a href="#contact" class="px-2 py-1 hover:text-blue-600 transition font-medium">Contact</a>
-      <a href="#consult" class="ml-3 px-4 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium text-sm shadow-sm">
-        Get Consultation
+    <nav id="desktop-nav" class="hidden md:flex items-center gap-6 font-sans text-sm md:text-base transition-colors duration-500">
+      <a href="#services" class="nav-link text-black hover:text-blue-300 transition-colors">Services</a>
+      <a href="#about" class="nav-link text-black hover:text-blue-300 transition-colors">About</a>
+      <a href="#contact" class="nav-link text-black hover:text-blue-300 transition-colors">Contact</a>
+      <a href="#consult" class="inline-flex items-center gap-.5 px-5 py-2 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-500">
+        Book a Free Consultation
       </a>
     </nav>
 
     <!-- Mobile Hamburger -->
     <button id="mobile-hamburger" aria-label="Toggle Menu" aria-expanded="false" class="md:hidden z-50 focus:outline-none">
-      <svg id="hamburger-icon" class="w-6 h-6 text-gray-800 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="hamburger-icon" class="w-6 h-6 text-black transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
-      <svg id="close-icon" class="w-6 h-6 text-gray-800 transition-transform duration-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="close-icon" class="w-6 h-6 text-black transition-transform duration-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
@@ -57,266 +56,316 @@
 
   <!-- Mobile Menu -->
   <nav id="mobile-menu-panel" class="fixed top-0 left-0 h-full w-full bg-white shadow-xl transform -translate-x-full transition-transform duration-300 z-40 flex flex-col items-center justify-center gap-6">
-    <a href="#services" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-sans font-medium text-base opacity-0 translate-x-6 transition-all duration-300">Services</a>
-    <a href="#about" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-sans font-medium text-base opacity-0 translate-x-6 transition-all duration-300">About</a>
-    <a href="#contact" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-sans font-medium text-base opacity-0 translate-x-6 transition-all duration-300">Contact</a>
-    <a href="#consult" class="mobile-link py-3 px-6 bg-blue-600 text-white font-sans font-medium rounded-lg hover:bg-blue-700 transition-all duration-300 opacity-0 translate-x-6 text-base">
+    <a href="#services" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-medium opacity-0 translate-x-6 transition-all duration-300">Services</a>
+    <a href="#about" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-medium opacity-0 translate-x-6 transition-all duration-300">About</a>
+    <a href="#contact" class="mobile-link py-3 text-gray-700 hover:text-blue-600 font-medium opacity-0 translate-x-6 transition-all duration-300">Contact</a>
+    <a href="#consult" class="mobile-link py-3 px-6 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300 opacity-0 translate-x-6 text-base">
       Get Consultation
     </a>
   </nav>
-
-  <script>
-    const hamburgerBtn = document.getElementById('mobile-hamburger');
-    const mobileMenu = document.getElementById('mobile-menu-panel');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('translate-x-0');
-
-      if (!isOpen) {
-        // Open menu
-        mobileMenu.classList.remove('-translate-x-full');
-        mobileMenu.classList.add('translate-x-0');
-
-        mobileLinks.forEach((link, i) => {
-          setTimeout(() => {
-            link.classList.remove('opacity-0', 'translate-x-6');
-            link.classList.add('opacity-100', 'translate-x-0');
-          }, i * 100);
-        });
-
-        // Show X icon
-        hamburgerIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
-      } else {
-        // Close menu
-        mobileMenu.classList.add('-translate-x-full');
-        mobileMenu.classList.remove('translate-x-0');
-
-        mobileLinks.forEach(link => {
-          link.classList.add('opacity-0', 'translate-x-6');
-          link.classList.remove('opacity-100', 'translate-x-0');
-        });
-
-        // Show hamburger icon
-        closeIcon.classList.add('hidden');
-        hamburgerIcon.classList.remove('hidden');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
 </header>
 
-
-
-
 <!-- Hero Section -->
-<section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0">
-    <img 
-      src="https://plus.unsplash.com/premium_photo-1681487803114-637de228039c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-      alt="Background" 
-      class="w-full h-full object-cover"
-    >
-    <div class="absolute inset-0 bg-white/85 backdrop-blur-sm"></div>
-  </div>
+<section class="hero-section relative w-full min-h-screen bg-gradient-to-r from-blue-50 to-white flex items-center">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
 
-  <div class="relative z-10 text-center px-6 md:px-0 max-w-4xl">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 animate-fadeIn delay-200">
-      Empowering Businesses with
-      <br>
-      <span class="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        Scalable Tech Solutions
-      </span>
-    </h1>
-
-    <p class="mt-6 text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto animate-fadeIn delay-400">
-      We deliver high-quality software, infrastructure, and custom digital solutions 
-      to help your business grow and succeed in today's competitive landscape.
-    </p>
-
-    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 items-center animate-fadeIn delay-600">
-      <a href="#consult" class="inline-flex items-center justify-center gap-2 px-8 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-hover))] text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-1000">
-        Get a Consultation
-      </a>
-      <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-3 text-lg font-semibold rounded-lg bg-white border border-gray-300 text-gray-900 shadow hover:shadow-md transition-all duration-1000">
-        View Our Services
-      </a>
+    <!-- Left: Text -->
+    <div class="relative z-10 text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start justify-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-smooth" style="animation-delay: 0.2s;">
+        Empowering Businesses
+        <span class="text-blue-600">with Scalable SaaS Solutions</span>
+      </h1>
+      <p class="text-gray-700 text-base sm:text-lg md:text-xl mb-8 max-w-lg animate-fade-in-smooth" style="animation-delay: 0.4s;">
+        We build custom software, cloud infrastructure, and automation systems that help your business scale faster, work smarter, and stay ahead in a digital world.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-smooth" style="animation-delay: 0.6s;">
+        <a href="#consult" class="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg font-semibold hover:scale-105 hover:shadow-xl transition-transform duration-500">
+          Book a Free Consultation
+        </a>
+        <a href="#services" class="px-8 py-3 border border-gray-300 text-gray-900 rounded-lg shadow hover:shadow-md transition-all duration-500">
+          Explore Our Services
+        </a>
+      </div>
     </div>
+
+<!-- Right: Creative Tech Illustration -->
+<div class="relative md:w-1/2 w-full flex justify-center items-center mt-10 md:mt-0">
+  <svg class="w-full h-auto animate-float-tech" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Abstract polygon / blobs -->
+    <path d="M100,400 L200,150 L500,100 L650,300 L600,500 L350,550 Z" fill="#2563EB" fill-opacity="0.25"/>
+    <path d="M150,450 L250,180 L480,120 L620,320 L580,520 L360,560 Z" fill="#3B82F6" fill-opacity="0.2"/>
+
+    <!-- Tech nodes -->
+    <circle cx="180" cy="200" r="6" fill="#60A5FA"/>
+    <circle cx="500" cy="150" r="6" fill="#60A5FA"/>
+    <circle cx="620" cy="300" r="6" fill="#60A5FA"/>
+    <circle cx="400" cy="500" r="6" fill="#2563EB"/>
+    <circle cx="350" cy="400" r="6" fill="#2563EB"/>
+
+    <!-- Connecting lines -->
+    <line x1="180" y1="200" x2="500" y2="150" stroke="#60A5FA" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="500" y1="150" x2="620" y2="300" stroke="#60A5FA" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="620" y1="300" x2="400" y2="500" stroke="#60A5FA" stroke-opacity="0.3" stroke-width="2"/>
+    <line x1="400" y1="500" x2="350" y2="400" stroke="#2563EB" stroke-opacity="0.3" stroke-width="2"/>
+    <line x1="350" y1="400" x2="180" y2="200" stroke="#2563EB" stroke-opacity="0.3" stroke-width="2"/>
+  </svg>
+</div>
+
+
   </div>
-
-<!-- Floating shapes -->
-<div class="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-20 animate-float" style="animation-duration: 10s;"></div>
-<div class="absolute bottom-20 right-10 w-16 h-16 bg-blue-200 rounded-full opacity-20 animate-float" style="animation-delay: 2s; animation-duration: 12s;"></div>
-<div class="absolute top-1/2 right-20 w-12 h-12 bg-blue-50 rounded-full opacity-20 animate-float" style="animation-delay: 4s; animation-duration: 14s;"></div>
-
 </section>
 
-<!-- Services Section -->
+<script>
+  // Mobile toggle
+  const hamburgerBtn = document.getElementById('mobile-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu-panel');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  const headerBg = document.getElementById('header-bg');
+  const logoText = document.getElementById('logo-text');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.contains('translate-x-0');
+    if(!open){
+      mobileMenu.classList.remove('-translate-x-full');
+      mobileMenu.classList.add('translate-x-0');
+      mobileLinks.forEach((link,i)=>setTimeout(()=>{link.classList.remove('opacity-0','translate-x-6');link.classList.add('opacity-100','translate-x-0');},i*100));
+      hamburgerIcon.classList.add('hidden'); closeIcon.classList.remove('hidden');
+    } else {
+      mobileMenu.classList.add('-translate-x-full'); mobileMenu.classList.remove('translate-x-0');
+      mobileLinks.forEach(link=>{link.classList.add('opacity-0','translate-x-6');link.classList.remove('opacity-100','translate-x-0');});
+      closeIcon.classList.add('hidden'); hamburgerIcon.classList.remove('hidden');  
+    }
+  });
+
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+      headerBg.classList.add('bg-white','shadow-md','backdrop-blur-sm');
+      headerBg.classList.remove('bg-transparent');
+
+      logoText.classList.add('text-blue-600'); // always blue when scrolling
+      logoText.classList.remove('text-black');
+
+      navLinks.forEach(link=>{
+        link.classList.remove('text-black','hover:text-blue-300');
+        link.classList.add('text-black-700','hover:text-blue-600');
+      });
+    } else {
+      // Top of page: header transparent, logo stays blue
+      headerBg.classList.add('bg-transparent'); 
+      headerBg.classList.remove('bg-white','shadow-md');
+
+      logoText.classList.add('text-blue-600'); // keep blue
+      logoText.classList.remove('text-black');
+
+      navLinks.forEach(link=>{
+        link.classList.add('text-black','hover:text-blue-300'); 
+        link.classList.remove('text-black','hover:text-blue-600');
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Smooth fade-in */
+  @keyframes fadeInSmooth { 
+    0% { opacity:0; transform:translateY(30px); } 
+    100% { opacity:1; transform:translateY(0); } 
+  }
+  .animate-fade-in-smooth{ animation:fadeInSmooth 1s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+  /* Floating SVG shapes */
+  @keyframes floatShapes {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+    50% { transform: translateY(10px) rotate(-5deg) scale(1); }
+    75% { transform: translateY(-5px) rotate(3deg) scale(1.02); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+  }
+  .animate-float{ animation: floatShapes 6s ease-in-out infinite; }
+</style>
+
 <section id="services" class="py-24 px-6 bg-gray-50">
   <div class="max-w-7xl mx-auto">
+
     <!-- Header -->
-    <div class="text-center mb-20 fade-in-on-scroll" data-delay="100">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 leading-tight mb-4">
+    <div class="text-center max-w-3xl md:max-w-4xl mx-auto mb-16 md:mb-24 px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-snug mb-5 tracking-tight opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll">
         Our Professional Services
       </h2>
-      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-        Comprehensive tech solutions designed to drive your business forward
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed opacity-0 transform -translate-y-4 transition-all duration-1000 ease-out fade-in-on-scroll delay-200">
+        Expertly crafted technology solutions designed to enhance efficiency, drive growth, and elevate your business performance.
       </p>
     </div>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
       <!-- Card 1 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="200">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="200">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Software Development</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Software Development
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We build scalable, efficient, and high-quality software solutions tailored to your business needs.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We develop secure, scalable, and efficient software solutions that streamline workflows and drive long-term business growth.
           </p>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="250">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="300">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
               <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
               <path d="M3 12A9 3 0 0 0 21 12"></path>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Database Solutions</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Database Solutions
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We design, optimize, and manage secure, scalable databases for efficient storage and retrieval.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We design, optimize, and maintain secure databases built for performance, scalability, and reliable data management.
           </p>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="300">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="400">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="8" height="8" x="3" y="3" rx="2"></rect>
               <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
               <rect width="8" height="8" x="13" y="13" rx="2"></rect>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Process Digitalization</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Process Digitalization
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We automate and optimize business processes with digital solutions to increase efficiency.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We transform manual processes into smart digital workflows that improve accuracy, efficiency, and business agility.
           </p>
         </div>
       </div>
 
       <!-- Card 4 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="350">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="500">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Custom Solutions</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Custom Solutions
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We create tailored solutions to meet your unique business challenges and deliver competitive advantages.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We build tailored digital solutions that address specific business challenges and give you a competitive edge.
           </p>
         </div>
       </div>
 
       <!-- Card 5 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="400">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="600">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="20" height="8" x="2" y="2" rx="2"></rect>
               <rect width="20" height="8" x="2" y="14" rx="2"></rect>
               <line x1="6" x2="6.01" y1="6" y2="6"></line>
               <line x1="6" x2="6.01" y1="18" y2="18"></line>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Servers & Infrastructure</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Servers & Infrastructure
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We design and manage reliable, scalable server infrastructures for optimal performance and uptime.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We design, deploy, and maintain robust server infrastructures to ensure consistent performance and high availability.
           </p>
         </div>
       </div>
 
       <!-- Card 6 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="450">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="700">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
               <path d="M2 12h20"></path>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">WordPress Development</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            WordPress Development
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            Professional WordPress development and management services for powerful, scalable web solutions.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We build and manage high-performance WordPress platforms that deliver stability, speed, and seamless user experiences.
           </p>
         </div>
       </div>
 
       <!-- Card 7 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="500">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="800">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Cloud & Hosting</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            Cloud & Hosting
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            Comprehensive cloud solutions and hosting services designed for performance, security, and scalability.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We deliver secure cloud and hosting solutions built for speed, reliability, and seamless scalability.
           </p>
         </div>
       </div>
 
       <!-- Card 8 -->
-      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg fade-in-on-scroll" data-delay="550">
+      <div class="group cursor-pointer rounded-2xl bg-gray-100 border border-gray-200 shadow-md transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl opacity-0 transform translate-y-6 fade-in-on-scroll" data-delay="900">
         <div class="flex flex-col items-center p-6 text-center space-y-3">
-          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-500 ease-in-out">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center justify-center w-16 h-16 p-3 rounded-lg bg-blue-100 group-hover:bg-blue-200 transition-all duration-700 ease-in-out transform group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-gray-900">IT Consulting</h3>
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 transition-transform duration-500 group-hover:-translate-y-1">
+            IT Consulting
+          </h3>
         </div>
         <div class="p-6 pt-0 text-center">
-          <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
-            Strategic IT consulting to help you make informed technology decisions and optimize your digital infrastructure.
+          <p class="text-sm sm:text-base text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+            We provide expert IT consulting to help you align technology with strategy and make informed, future-ready decisions.
           </p>
         </div>
       </div>
@@ -324,17 +373,20 @@
     </div>
   </div>
 </section>
-<section class="py-20 px-6 bg-secondary/30">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 animate-fadeInUp">
-      Our Success Stories
-    </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
+<section class="py-24 px-6 bg-secondary/30">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Title -->
+   <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-snug tracking-tight text-center mb-16 opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll" data-delay="0">
+  Our Success Stories
+</h2>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
       <!-- Card 1 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="100">
+        <div class="flex flex-col space-y-2.5 p-6 flex-grow">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition">
               <i data-lucide="shopping-cart" class="w-6 h-6 text-blue-500"></i>
@@ -343,20 +395,20 @@
               E-Commerce
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-blue-600 transition">
+          <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
             Global Online Retail Platform
           </h3>
         </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Developed a high-performance e-commerce platform serving 50k+ daily users with multi-currency checkout, automated order processing, and analytics dashboards.
+        <div class="p-6 pt-0">
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            Developed a high-performance e-commerce platform serving over 50,000 daily users, with multi-currency checkout, automated order processing, and advanced analytics dashboards.
           </p>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="200">
+        <div class="flex flex-col space-y-2.5 p-6 flex-grow">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-green-50 rounded-lg group-hover:bg-green-100 transition">
               <i data-lucide="server" class="w-6 h-6 text-green-500"></i>
@@ -365,20 +417,20 @@
               Enterprise SaaS
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-green-600 transition">
+          <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-green-600 transition-colors duration-300">
             Multi-Tenant SaaS Management System
           </h3>
         </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Created a secure SaaS platform supporting thousands of clients with role-based access, real-time analytics, and automated billing.
+        <div class="p-6 pt-0">
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            Built a secure SaaS platform supporting thousands of clients, featuring role-based access, real-time analytics, and automated billing.
           </p>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="300">
+        <div class="flex flex-col space-y-2.5 p-6 flex-grow">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition">
               <i data-lucide="activity" class="w-6 h-6 text-purple-500"></i>
@@ -387,20 +439,20 @@
               FinTech
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-purple-600 transition">
+          <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
             Real-Time Payment & Fraud Detection
           </h3>
         </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Built a real-time payment system with AI-driven fraud detection, high-volume transaction processing, and full compliance with security standards.
+        <div class="p-6 pt-0">
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            Created a real-time payment system with AI-powered fraud detection, handling high-volume transactions securely and fully compliant with industry standards.
           </p>
         </div>
       </div>
 
       <!-- Card 4 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="400">
+        <div class="flex flex-col space-y-2.5 p-6">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition">
               <i data-lucide="globe" class="w-6 h-6 text-yellow-500"></i>
@@ -409,20 +461,20 @@
               Healthcare
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-yellow-600 transition">
-            Patient Management & Scheduling System
+          <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">
+            Patient Management & Scheduling
           </h3>
         </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Developed a secure patient management system with appointment scheduling, medical records management, staff dashboards, and reporting tools.
+        <div class="p-6 pt-0">
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            Developed a secure patient management system with appointment scheduling, medical record tracking, staff dashboards, and reporting tools.
           </p>
         </div>
       </div>
 
       <!-- Card 5 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="500">
+        <div class="flex flex-col space-y-2.5 p-6">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition">
               <i data-lucide="bar-chart" class="w-6 h-6 text-indigo-500"></i>
@@ -431,20 +483,20 @@
               Analytics
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-indigo-600 transition">
+          <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
             Business Intelligence Dashboard
           </h3>
         </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Created a BI dashboard for enterprise clients, visualizing KPIs, sales trends, and automated reports for data-driven decision making.
+        <div class="p-6 pt-0">
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            Created a BI dashboard visualizing KPIs, sales trends, and automated reports, enabling data-driven decisions for enterprise clients.
           </p>
         </div>
       </div>
 
       <!-- Card 6 -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all group h-full">
-        <div class="flex flex-col space-y-1.5 p-6">
+      <div class="cursor-pointer rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 group h-full flex flex-col fade-in-on-scroll opacity-0 translate-y-6" data-delay="600">
+        <div class="flex flex-col space-y-2.5 p-6 flex-grow">
           <div class="flex items-start justify-between mb-4">
             <div class="p-3 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition">
               <i data-lucide="server" class="w-6 h-6 text-emerald-500"></i>
@@ -453,14 +505,13 @@
               Logistics & Automation
             </span>
           </div>
-          <h3 class="font-semibold text-xl text-gray-900 group-hover:text-emerald-600 transition">
-            Warehouse Automation System
-          </h3>
-        </div>
-        <div class="p-6 pt-0 space-y-4">
-          <p class="text-sm text-gray-600 leading-relaxed">
-            Developed an automated warehouse system with real-time tracking dashboards, optimizing logistics operations by 35%.
-          </p>
+         <h3 class="font-semibold text-xl md:text-xl text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+          Advanced Logistics & Automation Platform
+        </h3>
+        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+          Developed an intelligent automation platform that streamlines corporate logistics operations, increasing efficiency and reducing operational costs significantly.
+        </p>
+
         </div>
       </div>
 
@@ -473,25 +524,24 @@
 
 <!-- Include AOS CSS in <head> -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-<section class="py-20 px-6 overflow-hidden" style="background-color: #f3f4f64c;">
+<section class="py-20 px-6 overflow-hidden bg-gray-50">
   <div class="max-w-7xl mx-auto">
     <!-- Heading -->
-    <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+    <div class="text-center mb-16 opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Ready to Get Started?
+        Ready to Take the Next Step?
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Let's discuss how we can help transform your business with the right technology solutions
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+        Let’s discuss how we can help transform your business with the right technology solutions.
       </p>
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
       <!-- Contact Info -->
-      <div class="lg:col-span-1 space-y-6">
+      <div class="space-y-6">
         <!-- Email -->
-        <div class="rounded-lg border bg-white/30 shadow-sm p-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="rounded-lg border bg-white shadow-sm p-6 cursor-pointer opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll hover:shadow-lg hover:-translate-y-1" data-delay="100">
           <h3 class="text-2xl font-semibold flex items-center gap-3 mb-2 text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <rect width="20" height="16" x="2" y="4" rx="2"></rect>
@@ -507,7 +557,7 @@
         </div>
 
         <!-- Call -->
-        <div class="rounded-lg border bg-white/30 shadow-sm p-6" data-aos="fade-right" data-aos-duration="1200">
+        <div class="rounded-lg border bg-white shadow-sm p-6 cursor-pointer opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll hover:shadow-lg hover:-translate-y-1" data-delay="200">
           <h3 class="text-2xl font-semibold flex items-center gap-3 mb-2 text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -522,7 +572,7 @@
         </div>
 
         <!-- Visit -->
-        <div class="rounded-lg border bg-white/30 shadow-sm p-6" data-aos="fade-right" data-aos-duration="1400">
+        <div class="rounded-lg border bg-white shadow-sm p-6 cursor-pointer opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll hover:shadow-lg hover:-translate-y-1" data-delay="300">
           <h3 class="text-2xl font-semibold flex items-center gap-3 mb-2 text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
@@ -539,7 +589,7 @@
       </div>
 
       <!-- Form -->
-      <div class="lg:col-span-2" data-aos="fade-left" data-aos-duration="1600">
+      <div class="lg:col-span-2 opacity-0 transform -translate-y-6 transition-all duration-1000 ease-out fade-in-on-scroll" data-delay="400">
         <div class="rounded-lg border bg-white shadow-sm">
           <div class="p-6">
             <h3 class="text-2xl font-semibold text-gray-900 mb-1">Schedule a Consultation</h3>
@@ -575,7 +625,7 @@
 
               <button type="submit"
                 class="inline-flex items-center justify-center gap-2 text-sm font-medium text-white rounded-md h-11 w-full px-8 bg-gradient-to-r from-blue-600 to-blue-500 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4 mr-2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4 mr-2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
                 Schedule a Consultation
               </button>
             </form>
@@ -585,12 +635,13 @@
     </div>
   </div>
 </section>
+
 <footer class="bg-white text-gray-700 pt-10 pb-16 border-t border-gray-200">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 
     <!-- Logo & Description -->
     <div>
-      <h1 class="text-xl font-bold text-blue-400 mb-2 animate-fadeIn">Elevatec</h1>
+      <h1 class="text-xl font-bold text-blue-400 mb-2 animate-fadeIn">Elevatech</h1>
       <p class="text-gray-500 text-sm mb-1 animate-fadeIn delay-100">
         Professional Tech Services for Modern Businesses
       </p>
@@ -630,7 +681,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 8V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z" />
         </svg>
-        contact@elevatec.com
+        contact@elevatech.com
       </p>
       <p class="text-gray-600 text-sm animate-fadeIn delay-150">
         123 Technology Avenue<br>
@@ -643,7 +694,7 @@
 
   <!-- Footer Bottom -->
   <div class="mt-10 border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto">
-    <p class="text-gray-500 text-sm animate-fadeIn">&copy; 2025 Elevatec. All rights reserved.</p>
+    <p class="text-gray-500 text-sm animate-fadeIn">&copy; 2025 Elevatech. All rights reserved.</p>
 
     <!-- Social Icons -->
     <div class="flex space-x-2 mt-3 md:mt-0 animate-fadeIn">
